@@ -1,3 +1,7 @@
+<?php 
+require_once('detail.php');
+?>
+
 <html>
     <head>
         <title>Best Blog in the Universe</title>
@@ -33,9 +37,9 @@
                 ?>
 
 
-                <? function displayTitles($posts) {
+                <?php function displayTitles($posts) {
                     foreach ($posts as $index => $post) {
-                    echo '<p><a href="detail.php?post_id=' . $index . '">' . $post['title'] . '</a></p>';
+						echo '<p><a href="detail.php?post_id="' . $index . '>' . $post['title'] . '</a></p>';
         }
     }
     displayTitles($blogPost);
