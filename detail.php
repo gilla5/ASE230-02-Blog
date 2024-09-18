@@ -1,49 +1,54 @@
-<?php 
-require_once('index.php');
+<?php
+$blogPosts = [
+    [
+        "title" => "The Rise of Remote Work: How to Stay Productive from Home",
+        "content" => "Remote work has become increasingly common, transforming how we approach our jobs and daily routines. For many, working from home offers flexibility and the comfort of a personal workspace, but it also comes with unique challenges. To stay productive, it's crucial to create a dedicated workspace, set clear boundaries between work and personal time, and establish a consistent routine. Embracing technology tools for communication and project management can also enhance efficiency. By addressing these factors, you can turn remote work into a successful and fulfilling experience.",
+        "author" => "Jordan Lee",
+        "date" => "September 14, 2024"
+    ],
+    [
+        "title" => "5 Simple Steps to Improve Your Digital Marketing Strategy",
+        "content" => "In today's fast-paced digital landscape, a robust marketing strategy is essential for business success. Start by defining your target audience to tailor your messaging effectively. Next, leverage data analytics to understand customer behavior and refine your campaigns. Social media platforms can be powerful tools for engagement—ensure you're active and responsive. Additionally, invest in high-quality content that adds value to your audience. Finally, continuously measure and adjust your strategy based on performance metrics to stay ahead of the competition.",
+        "author" => "Emily Carter",
+        "date" => "September 14, 2024"
+    ],
+    [
+        "title" => "The Future of Sustainable Fashion: Trends to Watch",
+        "content" => "Sustainable fashion is no longer a niche trend but a significant movement within the industry. As consumers become more eco-conscious, brands are adopting practices that prioritize environmental responsibility. Key trends include the use of recycled materials, transparency in supply chains, and the rise of circular fashion, where garments are designed to be reused or recycled. Additionally, innovations such as plant-based fabrics and zero-waste production methods are gaining traction. Staying informed about these trends can help consumers make ethical fashion choices and support a more sustainable future.",
+        "author" => "Mia Gonzalez",
+        "date" => "September 14, 2024"
+    ],
+    [
+        "title" => "Exploring the Benefits of Mindfulness Meditation",
+        "content" => "Mindfulness meditation has gained popularity for its numerous mental and physical health benefits. By focusing on the present moment and cultivating a non-judgmental awareness, individuals can reduce stress and enhance emotional well-being. Regular practice has been shown to improve concentration, increase self-awareness, and even boost immune function. Incorporating mindfulness into your daily routine doesn't require a significant time commitment; even a few minutes each day can lead to noticeable improvements. Embracing mindfulness can be a powerful tool for achieving a balanced and fulfilling life.",
+        "author" => "Alex Patel",
+        "date" => "September 14, 2024"
+    ]
+];
+
+
+function displayPostDetails($posts, $postId) {
+    if (isset($posts[$postId])) {
+        $post = $posts[$postId];
+        echo '<h1>' . $post['title'] . '</h1>';
+        echo '<p>Author: ' . $post['author'] . '</p>';
+        echo '<p>Date: ' . $post['date'] . '</p>';
+        echo '<p>' . $post['content'] . '</p>';
+    } else {
+        echo '<p>Post not found.</p>';
+    }
+}
+
+
+$postId = isset($_GET['post_id']) ? intval($_GET['post_id']) : 0;
 ?>
 
-<?php function displayElement($element, $i) { ?>
-        <div>
-            <p><?= $element['title'].' '.$element['content'].' '.$element['author'].' '.$element['date'].' '?></p>
-                <ul>
-			    <?php
-				    foreach($element['title'] as $title) echo '<li>'.$title.'</li>';
-					
-				        for($i=0;$i<count($blogPost[0]['title']);$i++){
-					        echo '<li>'.$blogPost[0]['title'][$i].'</li>';
-				        }
-				                    
-				?>
-		        </ul>
-                <ul>
-				<?php
-				    foreach($element['content'] as $content) echo '<li>'.$content.'</li>';
-				                    
-				        for($i=0;$i<count($blogPost[0]['content']);$i++){
-							echo '<li>'.$blogPost[0]['content'][$i].'</li>';
-				        }
-				                    
-				?>
-		        </ul>
-                <ul>
-			    <?php
-	                foreach($element['author'] as $author) echo '<li>'.$author.'</li>';
-																		
-						for($i=0;$i<count($blogPost[0]['author']);$i++){
-							echo '<li>'.$blogPost[0]['author'][$i].'</li>';
-				        }
-				                    
-                ?>
-		        </ul>
-                <ul>
-				<?php
-	                foreach($element['date'] as $date) echo '<li>'.$date.'</li>';
-				                    
-				        for($i=0;$i<count($blogPost[0]['date']);$i++){
-							echo '<li>'.$blogPost[0]['date'][$i].'</li>';
-				        }
-				                    
-			    ?>
-		        </ul>
-        </div> 
-<?php }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Post Details</title>
+</head>
+<body>
+    <?php displayPostDetails($blogPosts, $postId); ?>
+</body>
+</html>
