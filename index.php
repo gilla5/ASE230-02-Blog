@@ -1,8 +1,6 @@
 <?php 
 require_once('detail.php');
 ?>
-
-<html>
     <head>
         <title>Best Blog in the Universe</title>
     </head>
@@ -39,8 +37,18 @@ require_once('detail.php');
 
                 <?php function displayTitles($posts) {
                     foreach ($posts as $index => $post) {
-						echo '<p><a href="detail.php?post_id="' . $index . '>' . $post['title'] . '</a></p>';
+						echo '<p><a href="detail.php?post_id="" . $index . '>' . $post['title'] . '</a></p>';
         }
     }
-    displayTitles($blogPost);
-    ?>
+?>
+<!DOCTYPE html>
+	<html>
+		<head>
+    			<title>Blog Posts</title>
+		</head>
+		<body>
+    			<h1>Blog Posts</h1>
+    			<?php displayPostTitles($blogPosts); ?>
+		</body>
+	</html>    
+
