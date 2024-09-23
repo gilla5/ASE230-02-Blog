@@ -1,5 +1,4 @@
-{
-    "blogPost":[
+    [
         {
             "title":"The Rise of Remote Work: How to Stay Productive from Home",
             "content":"Remote work has become increasingly common, transforming how we approach our jobs and daily routines. For many, working from home offers flexibility and the comfort of a personal workspace, but it also comes with unique challenges. To stay productive, its crucial to create a dedicated workspace, set clear boundaries between work and personal time, and establish a consistent routine. Embracing technology tools for communication and project management can also enhance efficiency. By addressing these factors, you can turn remote work into a successful and fulfilling experience.",
@@ -25,4 +24,3 @@
             "date":"September 14, 2024"
         }
     ]
-}
