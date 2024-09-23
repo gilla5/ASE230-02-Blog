@@ -1,31 +1,18 @@
 <?php
-$blogPosts = [
-    [
-        "title" => "The Rise of Remote Work: How to Stay Productive from Home",
-        "content" => "Remote work has become increasingly common, transforming how we approach our jobs and daily routines. For many, working from home offers flexibility and the comfort of a personal workspace, but it also comes with unique challenges. To stay productive, it's crucial to create a dedicated workspace, set clear boundaries between work and personal time, and establish a consistent routine. Embracing technology tools for communication and project management can also enhance efficiency. By addressing these factors, you can turn remote work into a successful and fulfilling experience.",
-        "author" => "Jordan Lee",
-        "date" => "September 14, 2024"
-    ],
-    [
-        "title" => "5 Simple Steps to Improve Your Digital Marketing Strategy",
-        "content" => "In today's fast-paced digital landscape, a robust marketing strategy is essential for business success. Start by defining your target audience to tailor your messaging effectively. Next, leverage data analytics to understand customer behavior and refine your campaigns. Social media platforms can be powerful tools for engagement—ensure you're active and responsive. Additionally, invest in high-quality content that adds value to your audience. Finally, continuously measure and adjust your strategy based on performance metrics to stay ahead of the competition.",
-        "author" => "Emily Carter",
-        "date" => "September 14, 2024"
-    ],
-    [
-        "title" => "The Future of Sustainable Fashion: Trends to Watch",
-        "content" => "Sustainable fashion is no longer a niche trend but a significant movement within the industry. As consumers become more eco-conscious, brands are adopting practices that prioritize environmental responsibility. Key trends include the use of recycled materials, transparency in supply chains, and the rise of circular fashion, where garments are designed to be reused or recycled. Additionally, innovations such as plant-based fabrics and zero-waste production methods are gaining traction. Staying informed about these trends can help consumers make ethical fashion choices and support a more sustainable future.",
-        "author" => "Mia Gonzalez",
-        "date" => "September 14, 2024"
-    ],
-    [
-        "title" => "Exploring the Benefits of Mindfulness Meditation",
-        "content" => "Mindfulness meditation has gained popularity for its numerous mental and physical health benefits. By focusing on the present moment and cultivating a non-judgmental awareness, individuals can reduce stress and enhance emotional well-being. Regular practice has been shown to improve concentration, increase self-awareness, and even boost immune function. Incorporating mindfulness into your daily routine doesn't require a significant time commitment; even a few minutes each day can lead to noticeable improvements. Embracing mindfulness can be a powerful tool for achieving a balanced and fulfilling life.",
-        "author" => "Alex Patel",
-        "date" => "September 14, 2024"
-    ]
-];
+$file='posts.json';
+$content=file_get_contents($file);
+var_dump($content);
+echo '<hr />';
 
+$php_array=json_decode($content,true);
+var_dump($php_array);
+echo '<hr />';
+foreach($php_array as $post){
+    echo $post['title'].' '.$post['content'].' '.$post['author'].' '.$post['date'].' '.
+    '<br />';
+}
+
+// Function to display the blog post titles with links
 function displayPostTitles($posts) {
     foreach ($posts as $index => $post) {
         echo '<p><a href="detail.php?post_id=' . $index . '">' . $post['title'] . '</a></p>';
@@ -35,17 +22,11 @@ function displayPostTitles($posts) {
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <title>Blog Posts</title>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Blog Posts</h1>
-            <?php displayPostTitles($blogPosts); ?>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>
+<head>
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <?php displayPostTitles($blogPosts); ?>
+</body>
 </html>
